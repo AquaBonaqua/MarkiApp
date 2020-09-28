@@ -1,0 +1,81 @@
+﻿<Page x:Class="MarkiApp.PageCollections"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarkiApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="540" d:DesignWidth="1200"
+      Title="PageCollections">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="228*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="199*"/>
+        </Grid.RowDefinitions>
+        <Grid >
+            <StackPanel  Margin="40 0 0 5" VerticalAlignment="Center" HorizontalAlignment="Left"  Orientation="Horizontal">
+                <TextBlock Margin="0 0 5 0"  FontSize="20">Самое большое кол-во редких марок:</TextBlock>
+                <CheckBox   Name="FilterCheckBox3" Style="{x:Null}" Margin="0 5 0 0"  VerticalAlignment="Center" Unchecked="FilterCheckBox3_Unchecked" Checked="FilterCheckBox3_Checked" ></CheckBox>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Vertical" VerticalAlignment="Center" Margin="0 0 30 5">
+                <StackPanel  Margin="0 0 0 10" Orientation="Horizontal">
+                    <TextBlock Margin="0 0 5 0"  FontSize="20">Фильтр по владельцу:</TextBlock>
+                    <CheckBox   Name="FilterCheckBox" Style="{x:Null}" Margin="0 5 0 0"  VerticalAlignment="Center" Unchecked="FilterCheckBox_Unchecked" Checked="CheckBox_Checked"></CheckBox>
+                </StackPanel>
+                <ComboBox IsEnabled="False"  DisplayMemberPath="FullName" SelectedIndex="0" SelectedValuePath="CollectorID" Name="CollectorComboBox" SelectionChanged="CollectorComboBox_SelectionChanged">
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid  Name="CollectionsGrid"  VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" ColumnWidth="*" Grid.Row="1" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding CollectionID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Владелец" Binding="{Binding Collector.FullName}">
+
+                </DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Click">Показать коллекцию</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2" Background="#FF2196F3">
+            <StackPanel  Margin="0 0 40 5" VerticalAlignment="Center" HorizontalAlignment="Right"  Orientation="Horizontal">
+                <TextBlock Margin="0 0 5 0"  FontSize="20">Только редкие:</TextBlock>
+                <CheckBox   Name="FilterCheckBox2" Style="{x:Null}" Margin="0 5 0 0"  VerticalAlignment="Center" Checked="FilterCheckBox2_Checked" Unchecked="FilterCheckBox2_Unchecked"></CheckBox>
+            </StackPanel>
+
+
+
+            <StackPanel Visibility="Hidden" Name="CollectionNameStack" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock  HorizontalAlignment="Center" FontSize="16" VerticalAlignment="Center" Margin="0 0 5 0">Коллекция</TextBlock>
+                <TextBlock HorizontalAlignment="Center" FontSize="16" Name="CollectionName2" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <DataGrid Name="MarksGrid"  VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" ColumnWidth="*" Grid.Row="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding MarkID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тема марки" Binding="{Binding Theme}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Особенность" Binding="{Binding Feature}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата выпуска"  Binding="{Binding IssueDate, StringFormat=d, ConverterCulture=en-GB}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Тираж" Binding="{Binding Edition}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding PurchaseDate, StringFormat=d, ConverterCulture=en-GB}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price, StringFormat={}{0} руб.}"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

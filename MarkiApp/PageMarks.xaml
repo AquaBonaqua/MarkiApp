@@ -1,0 +1,46 @@
+﻿<Page x:Class="MarkiApp.PageMarks"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarkiApp"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="1200"
+      Title="PageMarks">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Click="Button_Click" ToolTip="Добавить">
+                <materialDesign:PackIcon Kind="Add"  />
+            </Button>
+            <Button Click="Button_Click_1" ToolTip="Добавить">
+                <materialDesign:PackIcon Kind="Remove"  />
+            </Button>
+        </StackPanel>
+        <StackPanel  Margin="0 0 30 5" VerticalAlignment="Center" HorizontalAlignment="Right"  Orientation="Horizontal" >
+            
+            <TextBlock Margin="10 0 5 0"  FontSize="20">Самая дорогая марка</TextBlock>
+            <CheckBox   Name="PriceCheckBox" Style="{x:Null}" Margin="0,9,0,0"  VerticalAlignment="Top" Unchecked="PriceCheckBox_Unchecked" Checked="PriceCheckBox_Checked" ></CheckBox>
+        </StackPanel>
+
+        <DataGrid Name="MarksGrid" ColumnWidth="*" VerticalAlignment="Stretch" AutoGenerateColumns="False" HorizontalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" MaxWidth="50" Binding="{Binding MarkID}"/>
+                <DataGridTextColumn Header="Название"   Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Тема марки" Binding="{Binding Theme}"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country}"/>
+                <DataGridTextColumn Header="Особенность"  Binding="{Binding Feature}"/>
+                <DataGridTextColumn Header="Дата выпуска"  Binding="{Binding IssueDate, StringFormat=d, ConverterCulture=en-GB}"/>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding PurchaseDate, StringFormat=d, ConverterCulture=en-GB}"/>
+                <DataGridTextColumn Header="Цена"  Binding="{Binding Price, StringFormat={}{0} руб.}"/>
+                <DataGridTextColumn Header="Тираж"  Binding="{Binding Ediotion}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

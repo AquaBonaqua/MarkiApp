@@ -1,0 +1,55 @@
+﻿<Window x:Class="MarkiApp.WindowAddMark"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarkiApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Добавление марки" Height="406.143" Width="413.84" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
+    <Grid >
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel  Orientation="Horizontal"  HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center"  >Название:</TextBlock>
+                <TextBox  Name="NameTB" Margin="5 0 0 0"  Width="105">
+                    
+                </TextBox>
+            </StackPanel>
+            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock VerticalAlignment="Center" >Тема марки:</TextBlock>
+                <TextBox Name="ThemeTB" Margin="5 0 0 0" Foreground="Gray" Width="105"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center" >Страна:</TextBlock>
+                <TextBox Name="CountryTB" Margin="5 0 0 0" Foreground="Gray" Width="105"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center" >Особенность:</TextBlock >
+                <TextBox Name="FeatureTB" Margin="5 0 0 0" Foreground="Gray" Width="105"></TextBox>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center" >Дата выпуска:</TextBlock>
+                <DatePicker  Name="IssueDate" Margin="5 0 0 0" Foreground="Gray" Width="105"></DatePicker>
+            </StackPanel>
+            <StackPanel Margin="0 5 0 5" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center" >Дата продажи:</TextBlock>
+                <DatePicker Name="PurchaseDate" Margin="5 0 0 0" Foreground="Gray" Width="105"></DatePicker>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center">Цена:</TextBlock>
+                <TextBox Name="PriceTB" Margin="5 0 0 5" Foreground="Gray" Width="105"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center">Тираж:</TextBlock>
+                <TextBox Name="EditionTB" Margin="5 0 0 5" Foreground="Gray" Width="105"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock VerticalAlignment="Center" >Коллекция:</TextBlock>
+                <ComboBox  Name="CollectionCB" Margin="5 0 0 0" Foreground="Gray" Width="105"></ComboBox>
+            </StackPanel>
+            <Button
+                Margin="0 20 0 0" Click="Button_Click">Добавить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

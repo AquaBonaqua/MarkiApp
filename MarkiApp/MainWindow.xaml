@@ -1,0 +1,39 @@
+﻿<Window 
+        x:Class="MarkiApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarkiApp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Марки" Height="650" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    
+    <StackPanel Background="GhostWhite">
+       
+        <Grid Height="50">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
+                <Button Uid="0" Width="190" Content="Марки" FontSize="20" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="1" Width="190" Content="Коллекции"  FontSize="20" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="2" Width="190" Content="Коллекционеры"  FontSize="20" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+            </StackPanel>
+            <Grid x:Name="GridCursor" Width="190" Height="5" Background="#FF2196F3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10 0"/>
+        </Grid>
+        <Grid x:Name="GridMain" Height="560" >
+            <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="MainFrame"/>
+        </Grid>
+
+        
+
+
+
+
+    </StackPanel>
+</Window>
